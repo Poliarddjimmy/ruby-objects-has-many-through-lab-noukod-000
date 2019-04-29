@@ -8,11 +8,17 @@ class Artist
     @@all << self
   end
   
-  def new_song(name, genre)
-    song = Song.new(name, genre)
-    self.songs << song
+  def add_song(song)
+    @songs << song
     song.artist = self
   end
+
+  def genres                        
+    self.songs.collect do |song|
+      song.genre
+    end
+  end
+
   
   def self.all
     @@all
