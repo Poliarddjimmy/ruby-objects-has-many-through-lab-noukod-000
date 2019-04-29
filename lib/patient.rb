@@ -5,7 +5,7 @@ class Patient
     @name=name
   end
   
-  def artists
+  def doctors
     songs.map do |song|
       song.artist
     end
