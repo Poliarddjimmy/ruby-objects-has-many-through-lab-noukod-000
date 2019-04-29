@@ -9,22 +9,16 @@ class Patient
     Appointment.new(date, self, doctor)
   end
 
-  #def appointments
-    #Appointment.all.select do |appointment|
-      #appointment.patient == self
-    #end
-  #end
+  def appointments
+    Appointment.all.select do |appointment|
+      appointment.patient == self
+    end
+  end
 
   def doctors
-    Appointment.all.select do |appointment|
-      appointment.patient.map do |appointment|
-        appointment.docto
-      end
+    appointments.map do |appointment|
+      appointment.doctor
     end
-    
-    #appointments.map do |appointment|
-      #appointment.doctor
-    #end
   end
   
 end
