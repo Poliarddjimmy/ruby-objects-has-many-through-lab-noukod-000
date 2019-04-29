@@ -8,20 +8,20 @@ class Genre
     @@all << self
   end
 
-  def self.all
-    @@all
-  end
-
-  def artists
-    songs.map do |song|
-      song.artist
-    end
-  end
-
   def songs
     Song.all.select do |song|
       song.genre == self
     end
+  end
+
+  def artists
+    songs.map do |song|
+      song.artist == self
+    end
+  end
+
+  def self.all
+    @@all
   end
 
 end
